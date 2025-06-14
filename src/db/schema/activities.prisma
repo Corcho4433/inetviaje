@@ -1,0 +1,9 @@
+model Activities {
+    id          String   @id @default(cuid())
+    name        String
+    description String
+    date        DateTime
+    price       Float
+
+    @@map("activities")
+}

@@ -1,0 +1,11 @@
+model Accomodation {
+    id            String   @id @default(cuid())
+    hotelName     String
+    location      String
+    arrivalDate   DateTime
+    departureDate DateTime
+    nights        Int
+    pricePerNight Float
+
+    @@map("accomodations")
+}

@@ -1,8 +1,22 @@
 model Transport {
-  id       String @id @default(cuid())
-  name     String
-  email    String @unique
-  password String
+    id             String      @id @default(uuid())
+    from           String? // Ej: "Aeropuerto Ezeiza"
+    to             String? // Ej: "Hotel NH Buenos Aires
+    description    String
+    date           DateTime
+    dateReturn     DateTime?
+    price          Float
+    vehicleType    VehicleType
+    seatsAvailable Int?
+    isPrivate      Boolean // true: servicio privado; false: compartido
 
-  @@map("tranportation")
+    @@map("transport")
+}
+
+enum VehicleType {
+    CAR
+    VAN
+    BUS
+    SUV
+    MINIBUS
 }

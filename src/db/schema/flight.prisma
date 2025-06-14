@@ -1,8 +1,11 @@
 model Flight {
-  id       String @id @default(cuid())
-  name     String
-  email    String @unique
-  password String
+    id        String    @id @default(cuid())
+    from      String
+    to        String
+    departure DateTime
+    arrival   DateTime
+    price     Float
+    Luggage   Luggage[]
 
-  @@map("flights")
+    @@map("flights")
 }

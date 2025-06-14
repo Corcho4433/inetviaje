@@ -1,8 +1,17 @@
 model Luggage {
-  id       String @id @default(cuid())
-  name     String
-  email    String @unique
-  password String
+    id        String      @id @default(uuid())
+    flightId  String
+    flight    Flight      @relation(fields: [flightId], references: [id])
+    type      LuggageType // Ej: CABIN, CHECKED, EXTRA
+    weightKg  Float
+    price     Float
+    createdAt DateTime    @default(now())
 
-  @@map("luggage")
+    @@map("luggage")
+}
+
+enum LuggageType {
+    CABIN // Equipaje de mano
+    CHECKED // Equipaje despachado
+    EXTRA // Equipaje adicional
 }
