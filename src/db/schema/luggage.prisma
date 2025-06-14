@@ -1,8 +1,8 @@
-model User {
+model Luggage {
   id       String @id @default(cuid())
   name     String
   email    String @unique
   password String
 
-  @@map("users")
+  @@map("luggage")
 }

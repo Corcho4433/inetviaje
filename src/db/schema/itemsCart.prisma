@@ -1,0 +1,19 @@
+model ItemCart {
+    id      String @id @default(cuid())
+    id_cart String
+
+    name        String
+    entity      Entity
+    id_articulo String
+
+    cart Cart @relation(fields: [id_cart], references: [id])
+
+    @@map("items_cart")
+}
+
+enum Entity {
+    transport
+    package
+    luggage
+    flight
+}
